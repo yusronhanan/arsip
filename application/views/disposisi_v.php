@@ -36,7 +36,7 @@
                                         <th>Catatan</th>
                                         <th>Status Surat</th>
                                         <th>Tanggapan</th>
-                                        <th>File Surat</th>
+                                        <!-- <th>File Surat</th> -->
                                         <th>Aksi</th>
                                     </tr>
 
@@ -65,7 +65,7 @@
                                          
                                         ?></td>
                                         <td class="center"><?php echo $data->tanggapan ?></td>
-                                        <td><a href="<?php echo base_url().'assets/surat/'.$data->file_surat ?>" target="_blank" class="btn btn-info">Lihat</a></td>
+                                        <!-- <td><a href="<?php echo base_url().'assets/surat/'.$data->file_surat ?>" target="_blank" class="btn btn-info">Lihat</a></td> -->
                                         <td>
                                             <?php if ($data->kepada_id == $this->session->userdata('logged_id')) {
                                                 if ($data->status_surat == 0) { ?>
