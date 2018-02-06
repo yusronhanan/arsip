@@ -76,39 +76,39 @@ class Surat extends CI_Controller {
 		$this->form_validation->set_rules('tanggall_terima', 'Tanggal Terima', 'required');
 		$this->form_validation->set_rules('perihall', 'Perihal', 'required');
 
-			$per_page = $this->input->post('per_page');
+			// $per_page = $this->input->post('per_page');
 		if ($this->form_validation->run() == TRUE) {
 			$data = $this->surat_model->edit_surat_masuk();
 			if ($data == TRUE) {
 				$this->session->set_flashdata('notif', 'Anda sukses mengedit data surat');
 				$this->session->set_flashdata('tipe_notif', 'success');
-				if ($per_page != "") {
-				redirect('surat_masuk/?per_page='.$per_page);	
-				}
-				else{
+				// if ($per_page != "") {
+				// redirect('surat_masuk/?per_page='.$per_page);	
+				// }
+				// else{
 				redirect('surat_masuk');		
-				}
+				// }
 				
 			}
 			else{
 				$this->session->set_flashdata('notif', 'Maaf, anda gagal mengedit data surat');
 				$this->session->set_flashdata('tipe_notif', 'danger');
-				if ($per_page != "") {
-				redirect('surat_masuk/?per_page='.$per_page);	
-				}
-				else{
+				// if ($per_page != "") {
+				// redirect('surat_masuk/?per_page='.$per_page);	
+				// }
+				// else{
 				redirect('surat_masuk');		
-				}
+				// }
 			}
 		} else {
 			$this->session->set_flashdata('notif', validation_errors());
 			$this->session->set_flashdata('tipe_notif', 'warning');
-			if ($per_page != "") {
-				redirect('surat_masuk/?per_page='.$per_page);	
-				}
-				else{
+			// if ($per_page != "") {
+			// 	redirect('surat_masuk/?per_page='.$per_page);	
+			// 	}
+			// 	else{
 				redirect('surat_masuk');		
-				}
+				// }
 		}
 		}else{
 			redirect('auth');
@@ -124,40 +124,40 @@ class Surat extends CI_Controller {
 			$this->load->library('upload', $config);
 			$this->upload->initialize($config);
 
-			$per_page = $this->input->post('per_page');
+			// $per_page = $this->input->post('per_page');
 			if ($this->upload->do_upload('filee_surat')){
 			
 			$data = $this->surat_model->edit_file_surat_masuk($this->upload->data());
 			if ($data == TRUE) {
 				$this->session->set_flashdata('notif', 'Anda sukses mengedit file data');
 				$this->session->set_flashdata('tipe_notif', 'success');
-				if ($per_page != "") {
-				redirect('surat_masuk/?per_page='.$per_page);	
-				}
-				else{
+				// if ($per_page != "") {
+				// redirect('surat_masuk/?per_page='.$per_page);	
+				// }
+				// else{
 				redirect('surat_masuk');		
-				}
+				// }
 			}
 			else{
 				$this->session->set_flashdata('notif', 'Maaf, anda gagal mengedit file data');
 				$this->session->set_flashdata('tipe_notif', 'danger');
-				if ($per_page != "") {
-				redirect('surat_masuk/?per_page='.$per_page);	
-				}
-				else{
+				// if ($per_page != "") {
+				// redirect('surat_masuk/?per_page='.$per_page);	
+				// }
+				// else{
 				redirect('surat_masuk');		
-				}
+				// }
 			}
 		}
 			else{
 				$this->session->set_flashdata('notif', $this->upload->display_errors());
 				$this->session->set_flashdata('tipe_notif', 'warning');
-				if ($per_page != "") {
-				redirect('surat_masuk/?per_page='.$per_page);	
-				}
-				else{
+				// if ($per_page != "") {
+				// redirect('surat_masuk/?per_page='.$per_page);	
+				// }
+				// else{
 				redirect('surat_masuk');		
-				}
+				// }
 			}
 		}else{
 			redirect('auth');
@@ -174,39 +174,39 @@ class Surat extends CI_Controller {
 		$this->form_validation->set_rules('tanggall_kirim', 'Tanggal Kirim', 'required');
 		$this->form_validation->set_rules('perihall', 'Perihal', 'required');
 
-			$per_page = $this->input->post('per_page');
+			// $per_page = $this->input->post('per_page');
 		if ($this->form_validation->run() == TRUE) {
 			$data = $this->surat_model->edit_surat_keluar();
 			if ($data == TRUE) {
 				$this->session->set_flashdata('notif', 'Anda sukses mengedit data surat');
 				$this->session->set_flashdata('tipe_notif', 'success');
-				if ($per_page != "") {
-				redirect('surat_keluar/?per_page='.$per_page);	
-				}
-				else{
+				// if ($per_page != "") {
+				// redirect('surat_keluar/?per_page='.$per_page);	
+				// }
+				// else{
 				redirect('surat_keluar');		
-				}
+				// }
 				
 			}
 			else{
 				$this->session->set_flashdata('notif', 'Maaf, anda gagal mengedit data surat');
 				$this->session->set_flashdata('tipe_notif', 'danger');
-				if ($per_page != "") {
-				redirect('surat_keluar/?per_page='.$per_page);	
-				}
-				else{
+				// if ($per_page != "") {
+				// redirect('surat_keluar/?per_page='.$per_page);	
+				// }
+				// else{
 				redirect('surat_keluar');		
-				}
+				// }
 			}
 		} else {
 			$this->session->set_flashdata('notif', validation_errors());
 			$this->session->set_flashdata('tipe_notif', 'warning');
-			if ($per_page != "") {
-				redirect('surat_keluar/?per_page='.$per_page);	
-				}
-				else{
+			// if ($per_page != "") {
+			// 	// redirect('surat_keluar/?per_page='.$per_page);	
+				// }
+				// else{
 				redirect('surat_keluar');		
-				}
+				// }
 		}
 		}else{
 			redirect('auth');
@@ -222,40 +222,40 @@ class Surat extends CI_Controller {
 			$this->load->library('upload', $config);
 			$this->upload->initialize($config);
 
-			$per_page = $this->input->post('per_page');
+			// $per_page = $this->input->post('per_page');
 			if ($this->upload->do_upload('filee_surat')){
 			
 			$data = $this->surat_model->edit_file_surat_keluar($this->upload->data());
 			if ($data == TRUE) {
 				$this->session->set_flashdata('notif', 'Anda sukses mengedit file data');
 				$this->session->set_flashdata('tipe_notif', 'success');
-				if ($per_page != "") {
-				redirect('surat_keluar/?per_page='.$per_page);	
-				}
-				else{
+				// if ($per_page != "") {
+				// redirect('surat_keluar/?per_page='.$per_page);	
+				// }
+				// else{
 				redirect('surat_keluar');		
-				}
+				// }
 			}
 			else{
 				$this->session->set_flashdata('notif', 'Maaf, anda gagal mengedit file data');
 				$this->session->set_flashdata('tipe_notif', 'danger');
-				if ($per_page != "") {
-				redirect('surat_keluar/?per_page='.$per_page);	
-				}
-				else{
+				// if ($per_page != "") {
+				// redirect('surat_keluar/?per_page='.$per_page);	
+				// }
+				// else{
 				redirect('surat_keluar');		
-				}
+				// }
 			}
 		}
 			else{
 				$this->session->set_flashdata('notif', $this->upload->display_errors());
 				$this->session->set_flashdata('tipe_notif', 'warning');
-				if ($per_page != "") {
-				redirect('surat_keluar/?per_page='.$per_page);	
-				}
-				else{
+				// if ($per_page != "") {
+				// redirect('surat_keluar/?per_page='.$per_page);	
+				// }
+				// else{
 				redirect('surat_keluar');		
-				}
+				// }
 			}
 		}else{
 			redirect('auth');
@@ -333,38 +333,38 @@ class Surat extends CI_Controller {
 		$this->form_validation->set_rules('kepada_kat', 'Jabatan', 'trim|required');
 		$this->form_validation->set_rules('kepada_id', 'Pegawai', 'trim|required');
 		$this->form_validation->set_rules('catatan', 'Catatan', 'trim|required');
-		$per_page = $this->input->post('per_page');
+		// $per_page = $this->input->post('per_page');
 		if ($this->form_validation->run() == TRUE) {
 			$data = $this->surat_model->insert_disposisi_parent();
 			if ($data == TRUE) {
 				$this->session->set_flashdata('notif', 'Anda sukses melakukan disposisi');
 				$this->session->set_flashdata('tipe_notif', 'success');
-				if ($per_page != "") {
-				redirect('surat_masuk/?per_page='.$per_page);	
-				}
-				else{
+				// if ($per_page != "") {
+				// redirect('surat_masuk/?per_page='.$per_page);	
+				// }
+				// else{
 				redirect('surat_masuk');		
-				}
+				// }
 			}
 			else{
 				$this->session->set_flashdata('notif', 'Maaf, anda gagal melakukan disposisi');
 				$this->session->set_flashdata('tipe_notif', 'danger');
-				if ($per_page != "") {
-				redirect('surat_masuk/?per_page='.$per_page);	
-				}
-				else{
+				// if ($per_page != "") {
+				// redirect('surat_masuk/?per_page='.$per_page);	
+				// }
+				// else{
 				redirect('surat_masuk');		
-				}
+				// }
 			}
 		} else {
 			$this->session->set_flashdata('notif', validation_errors());
 			$this->session->set_flashdata('tipe_notif', 'warning');
-			if ($per_page != "") {
-				redirect('surat_masuk/?per_page='.$per_page);	
-				}
-				else{
+			// if ($per_page != "") {
+			// 	redirect('surat_masuk/?per_page='.$per_page);	
+			// 	}
+			// 	else{
 				redirect('surat_masuk');		
-				}
+				// }
 		}
 		
 		}
@@ -450,38 +450,38 @@ class Surat extends CI_Controller {
 		$this->form_validation->set_rules('iddd_disposisi', 'ID Disposisi', 'trim|required');
 		$this->form_validation->set_rules('tanggapan', 'Tanggapan', 'trim|required');
 
-		$per_page = $this->input->post('per_page');
+		// $per_page = $this->input->post('per_page');
 		if ($this->form_validation->run() == TRUE) {
 			$data = $this->surat_model->terima_disposisi();
 			if ($data == TRUE) {
 				$this->session->set_flashdata('notif', 'Anda sukses melakukan terima disposisi');
 				$this->session->set_flashdata('tipe_notif', 'success');
-				if ($per_page != "") {
-				redirect('disposisi/?per_page='.$per_page);	
-				}
-				else{
+				// if ($per_page != "") {
+				// redirect('disposisi/?per_page='.$per_page);	
+				// }
+				// else{
 				redirect('disposisi');		
-				}
+				// }
 			}
 			else{
 				$this->session->set_flashdata('notif', 'Maaf, anda gagal melakukan terima disposisi');
 				$this->session->set_flashdata('tipe_notif', 'danger');
-				if ($per_page != "") {
-				redirect('disposisi/?per_page='.$per_page);	
-				}
-				else{
+				// if ($per_page != "") {
+				// redirect('disposisi/?per_page='.$per_page);	
+				// }
+				// else{
 				redirect('disposisi');		
-				}
+				// }
 			}
 		} else {
 			$this->session->set_flashdata('notif', validation_errors());
 			$this->session->set_flashdata('tipe_notif', 'warning');
-			if ($per_page != "") {
-				redirect('disposisi/?per_page='.$per_page);	
-				}
-				else{
+			// if ($per_page != "") {
+			// 	redirect('disposisi/?per_page='.$per_page);	
+			// 	}
+			// 	else{
 				redirect('disposisi');		
-				}
+				// }
 		}
 		
 		}
@@ -497,38 +497,38 @@ class Surat extends CI_Controller {
 		$this->form_validation->set_rules('kepada_id', 'Pegawai', 'trim|required');
 		$this->form_validation->set_rules('catatan', 'Catatan', 'trim|required');
 		$this->form_validation->set_rules('tanggapan', 'Tanggapan', 'trim|required');
-		$per_page = $this->input->post('per_page');
+		// $per_page = $this->input->post('per_page');
 		if ($this->form_validation->run() == TRUE) {
 			$data = $this->surat_model->insert_disposisi_child();
 			if ($data == TRUE) {
 				$this->session->set_flashdata('notif', 'Anda sukses melakukan disposisi');
 				$this->session->set_flashdata('tipe_notif', 'success');
-				if ($per_page != "") {
-				redirect('disposisi/?per_page='.$per_page);	
-				}
-				else{
+				// if ($per_page != "") {
+				// redirect('disposisi/?per_page='.$per_page);	
+				// }
+				// else{
 				redirect('disposisi');		
-				}
+				// }
 			}
 			else{
 				$this->session->set_flashdata('notif', 'Maaf, anda gagal melakukan disposisi');
 				$this->session->set_flashdata('tipe_notif', 'danger');
-				if ($per_page != "") {
-				redirect('disposisi/?per_page='.$per_page);	
-				}
-				else{
+				// if ($per_page != "") {
+				// redirect('disposisi/?per_page='.$per_page);	
+				// }
+				// else{
 				redirect('disposisi');		
-				}
+				// }
 			}
 		} else {
 			$this->session->set_flashdata('notif', validation_errors());
 			$this->session->set_flashdata('tipe_notif', 'warning');
-			if ($per_page != "") {
-				redirect('disposisi/?per_page='.$per_page);	
-				}
-				else{
+			// if ($per_page != "") {
+			// 	redirect('disposisi/?per_page='.$per_page);	
+			// 	}
+			// 	else{
 				redirect('disposisi');		
-				}
+				// }
 		}
 		
 		}

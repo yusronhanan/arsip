@@ -28,39 +28,39 @@ class Home extends CI_Controller {
 		if ($this->session->userdata('logged_in') == TRUE) {
 			
 		$user = count($this->home_model->GetAllData('pengguna'));
-		$this->load->library('pagination');
-		$config['page_query_string'] = TRUE;
-		$config['base_url'] = base_url().'user';
-		$config['total_rows'] = $user;
-		$config['per_page'] = 5;
-		$config['uri_segment'] = 3;
-		$config['num_links'] = 3;
-		$config['full_tag_open'] = '<p>';
-		$config['full_tag_close'] = '</p>';
-		$config['first_link'] = 'First';
-		$config['first_tag_open'] = '<div>';
-		$config['first_tag_close'] = '</div>';
-		$config['last_link'] = 'Last';
-		$config['last_tag_open'] = '<div>';
-		$config['last_tag_close'] = '</div>';
-		$config['next_link'] = '&gt;';
-		$config['next_tag_open'] = '<div>';
-		$config['next_tag_close'] = '</div>';
-		$config['prev_link'] = '&lt;';
-		$config['prev_tag_open'] = '<div>';
-		$config['prev_tag_close'] = '</div>';
-		$config['cur_tag_open'] = '<b>';
-		$config['cur_tag_close'] = '</b>';
+		// $this->load->library('pagination');
+		// $config['page_query_string'] = TRUE;
+		// $config['base_url'] = base_url().'user';
+		// $config['total_rows'] = $user;
+		// $config['per_page'] = 5;
+		// $config['uri_segment'] = 3;
+		// $config['num_links'] = 3;
+		// $config['full_tag_open'] = '<p>';
+		// $config['full_tag_close'] = '</p>';
+		// $config['first_link'] = 'First';
+		// $config['first_tag_open'] = '<div>';
+		// $config['first_tag_close'] = '</div>';
+		// $config['last_link'] = 'Last';
+		// $config['last_tag_open'] = '<div>';
+		// $config['last_tag_close'] = '</div>';
+		// $config['next_link'] = '&gt;';
+		// $config['next_tag_open'] = '<div>';
+		// $config['next_tag_close'] = '</div>';
+		// $config['prev_link'] = '&lt;';
+		// $config['prev_tag_open'] = '<div>';
+		// $config['prev_tag_close'] = '</div>';
+		// $config['cur_tag_open'] = '<b>';
+		// $config['cur_tag_close'] = '</b>';
 		
-		$this->pagination->initialize($config);
-		$mulai = $this->input->get('per_page');
+		// $this->pagination->initialize($config);
+		// $mulai = $this->input->get('per_page');
 		// $where =
-		$rows = $this->home_model->get_user($config['per_page'],$mulai,'');
+		$rows = $this->home_model->get_user('','','');
 		$data = [
 			'rows'		=> $rows,
-			'per_page'  => $mulai,
+			// 'per_page'  => $mulai,
 			'main_view' => 'user_v',
-			'pagination'=> $this->pagination->create_links(),
+			// 'pagination'=> $this->pagination->create_links(),
 			'jabatan' => $this->home_model->GetAllData('jabatan'),
 			'bagian' => $this->home_model->GetAllData('bagian'),
 			
@@ -75,43 +75,42 @@ class Home extends CI_Controller {
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
 			
-		$surat_masuk = count($this->home_model->GetAllData('surat_masuk'));
-		$this->load->library('pagination');
-		$config['page_query_string'] = TRUE;
-		$config['base_url'] = base_url().'surat_masuk';
-		$config['total_rows'] = $surat_masuk;
-		$config['per_page'] = 5;
-		$config['uri_segment'] = 3;
-		$config['num_links'] = 3;
-		$config['full_tag_open'] = '<p>';
-		$config['full_tag_close'] = '</p>';
-		$config['first_link'] = 'First';
-		$config['first_tag_open'] = '<div>';
-		$config['first_tag_close'] = '</div>';
-		$config['last_link'] = 'Last';
-		$config['last_tag_open'] = '<div>';
-		$config['last_tag_close'] = '</div>';
-		$config['next_link'] = '&gt;';
-		$config['next_tag_open'] = '<div>';
-		$config['next_tag_close'] = '</div>';
-		$config['prev_link'] = '&lt;';
-		$config['prev_tag_open'] = '<div>';
-		$config['prev_tag_close'] = '</div>';
-		$config['cur_tag_open'] = '<b>';
-		$config['cur_tag_close'] = '</b>';
+		// $this->load->library('pagination');
+		// $config['page_query_string'] = TRUE;
+		// $config['base_url'] = base_url().'surat_masuk';
+		// $config['total_rows'] = $surat_masuk;
+		// $config['per_page'] = 5;
+		// $config['uri_segment'] = 3;
+		// $config['num_links'] = 3;
+		// $config['full_tag_open'] = '<p>';
+		// $config['full_tag_close'] = '</p>';
+		// $config['first_link'] = 'First';
+		// $config['first_tag_open'] = '<div>';
+		// $config['first_tag_close'] = '</div>';
+		// $config['last_link'] = 'Last';
+		// $config['last_tag_open'] = '<div>';
+		// $config['last_tag_close'] = '</div>';
+		// $config['next_link'] = '&gt;';
+		// $config['next_tag_open'] = '<div>';
+		// $config['next_tag_close'] = '</div>';
+		// $config['prev_link'] = '&lt;';
+		// $config['prev_tag_open'] = '<div>';
+		// $config['prev_tag_close'] = '</div>';
+		// $config['cur_tag_open'] = '<b>';
+		// $config['cur_tag_close'] = '</b>';
 		
-		$this->pagination->initialize($config);
-		$mulai = $this->input->get('per_page');
+		// $this->pagination->initialize($config);
+		// $mulai = $this->input->get('per_page');
 		// $where =
-		$rows = $this->home_model->get_surat_masuk($config['per_page'],$mulai,'');
+		$rows = $this->home_model->get_surat_masuk('');
 		$data = [
 			'rows'		=> $rows,
 			'main_view' => 'surat_masuk_v',
-			'per_page'  => $mulai,
+			// 'per_page'  => $mulai,
 			'jenis_surat' => $this->home_model->GetAllData('jenis_surat'),
 			'jabatan' => $this->home_model->GetAllData('jabatan'),
 			'pengguna' => $this->home_model->GetAllData('pengguna'),
-			'pagination'=> $this->pagination->create_links(),
+			// 'pagination'=> $this->pagination->create_links(),
 		];
 		$this->load->view('template',$data);
 		}else{
@@ -123,40 +122,40 @@ public function surat_keluar()
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
 			
-		$surat_keluar = count($this->home_model->GetAllData('surat_keluar'));
-		$this->load->library('pagination');
-		$config['page_query_string'] = TRUE;
-		$config['base_url'] = base_url().'surat_keluar';
-		$config['total_rows'] = $surat_keluar;
-		$config['per_page'] = 5;
-		$config['uri_segment'] = 3;
-		$config['num_links'] = 3;
-		$config['full_tag_open'] = '<p>';
-		$config['full_tag_close'] = '</p>';
-		$config['first_link'] = 'First';
-		$config['first_tag_open'] = '<div>';
-		$config['first_tag_close'] = '</div>';
-		$config['last_link'] = 'Last';
-		$config['last_tag_open'] = '<div>';
-		$config['last_tag_close'] = '</div>';
-		$config['next_link'] = '&gt;';
-		$config['next_tag_open'] = '<div>';
-		$config['next_tag_close'] = '</div>';
-		$config['prev_link'] = '&lt;';
-		$config['prev_tag_open'] = '<div>';
-		$config['prev_tag_close'] = '</div>';
-		$config['cur_tag_open'] = '<b>';
-		$config['cur_tag_close'] = '</b>';
+		// $surat_keluar = count($this->home_model->GetAllData('surat_keluar'));
+		// $this->load->library('pagination');
+		// $config['page_query_string'] = TRUE;
+		// $config['base_url'] = base_url().'surat_keluar';
+		// $config['total_rows'] = $surat_keluar;
+		// $config['per_page'] = 5;
+		// $config['uri_segment'] = 3;
+		// $config['num_links'] = 3;
+		// $config['full_tag_open'] = '<p>';
+		// $config['full_tag_close'] = '</p>';
+		// $config['first_link'] = 'First';
+		// $config['first_tag_open'] = '<div>';
+		// $config['first_tag_close'] = '</div>';
+		// $config['last_link'] = 'Last';
+		// $config['last_tag_open'] = '<div>';
+		// $config['last_tag_close'] = '</div>';
+		// $config['next_link'] = '&gt;';
+		// $config['next_tag_open'] = '<div>';
+		// $config['next_tag_close'] = '</div>';
+		// $config['prev_link'] = '&lt;';
+		// $config['prev_tag_open'] = '<div>';
+		// $config['prev_tag_close'] = '</div>';
+		// $config['cur_tag_open'] = '<b>';
+		// $config['cur_tag_close'] = '</b>';
 		
-		$this->pagination->initialize($config);
-		$mulai = $this->input->get('per_page');
+		// $this->pagination->initialize($config);
+		// $mulai = $this->input->get('per_page');
 		// $where =
-		$rows = $this->home_model->get_surat_keluar($config['per_page'],$mulai,'');
+		$rows = $this->home_model->get_surat_keluar('');
 		$data = [
 			'rows'		=> $rows,
 			'main_view' => 'surat_keluar_v',
-			'per_page'  => $mulai,
-			'pagination'=> $this->pagination->create_links(),
+			// 'per_page'  => $mulai,
+			// 'pagination'=> $this->pagination->create_links(),
 			'jenis_surat' => $this->home_model->GetAllData('jenis_surat'),
 		];
 		$this->load->view('template',$data);	
@@ -218,44 +217,44 @@ public function surat_keluar()
 			$user_id = $this->session->userdata('logged_id');
 			$jb_user = $this->auth_model->GetUser(['id_pengguna'=> $user_id])->row('id_jabatan');
 		if ($this->session->userdata('level') == '0') {
-		$disposisi = count($this->home_model->GetAllData('disposisi'));	
+		// $disposisi = count($this->home_model->GetAllData('disposisi'));	
 		$where = '';
 		$or_where = '';
 		}
 		else{
-		$disposisi = count($this->home_model->GetDataOR(['kepada_id' => $user_id],['kepada_kat' => $jb_user],'disposisi')->result());
+		// $disposisi = count($this->home_model->GetDataOR(['kepada_id' => $user_id],['kepada_kat' => $jb_user],'disposisi')->result());
 		$where = ['kepada_id' => $user_id];
 		$or_where = ['kepada_kat' => $jb_user];	
 		}
-		$this->load->library('pagination');
-		$config['page_query_string'] = TRUE;
-		$config['base_url'] = base_url().'disposisi';
-		$config['total_rows'] = $disposisi;
-		$config['per_page'] = 5;
-		$config['uri_segment'] = 3;
-		$config['num_links'] = 3;
-		$config['full_tag_open'] = '<p>';
-		$config['full_tag_close'] = '</p>';
-		$config['first_link'] = 'First';
-		$config['first_tag_open'] = '<div>';
-		$config['first_tag_close'] = '</div>';
-		$config['last_link'] = 'Last';
-		$config['last_tag_open'] = '<div>';
-		$config['last_tag_close'] = '</div>';
-		$config['next_link'] = '&gt;';
-		$config['next_tag_open'] = '<div>';
-		$config['next_tag_close'] = '</div>';
-		$config['prev_link'] = '&lt;';
-		$config['prev_tag_open'] = '<div>';
-		$config['prev_tag_close'] = '</div>';
-		$config['cur_tag_open'] = '<b>';
-		$config['cur_tag_close'] = '</b>';
+		// $this->load->library('pagination');
+		// $config['page_query_string'] = TRUE;
+		// $config['base_url'] = base_url().'disposisi';
+		// $config['total_rows'] = $disposisi;
+		// $config['per_page'] = 5;
+		// $config['uri_segment'] = 3;
+		// $config['num_links'] = 3;
+		// $config['full_tag_open'] = '<p>';
+		// $config['full_tag_close'] = '</p>';
+		// $config['first_link'] = 'First';
+		// $config['first_tag_open'] = '<div>';
+		// $config['first_tag_close'] = '</div>';
+		// $config['last_link'] = 'Last';
+		// $config['last_tag_open'] = '<div>';
+		// $config['last_tag_close'] = '</div>';
+		// $config['next_link'] = '&gt;';
+		// $config['next_tag_open'] = '<div>';
+		// $config['next_tag_close'] = '</div>';
+		// $config['prev_link'] = '&lt;';
+		// $config['prev_tag_open'] = '<div>';
+		// $config['prev_tag_close'] = '</div>';
+		// $config['cur_tag_open'] = '<b>';
+		// $config['cur_tag_close'] = '</b>';
 		
-		$this->pagination->initialize($config);
-		$mulai = $this->input->get('per_page');
+		// $this->pagination->initialize($config);
+		// $mulai = $this->input->get('per_page');
 		
 		
-		$rows = $this->home_model->get_disposisi($config['per_page'],$mulai,$where,$or_where);
+		$rows = $this->home_model->get_disposisi($where,$or_where);
 			if ($this->session->userdata('level') == '0') {
 				$list_jb = $this->home_model->GetAllData('jabatan');
 				$list_pengguna = $this->home_model->GetAllData('pengguna');
@@ -270,9 +269,9 @@ public function surat_keluar()
 		$data = [
 			'rows'		=> $rows,
 			'main_view' => 'disposisi_v',
-			'per_page'  => $mulai,
+			// 'per_page'  => $mulai,
 
-			'pagination'=> $this->pagination->create_links(),
+			// 'pagination'=> $this->pagination->create_links(),
 			'jenis_surat' => $this->home_model->GetAllData('jenis_surat'),
 			
 			'jabatan' => $list_jb,
@@ -345,27 +344,27 @@ public function surat_keluar()
 			'id_jabatan' => $this->input->post('idd_jabatan'),
 			'id_bagian' => $this->input->post('idd_bagian'),
 		];
-		$per_page = $this->input->post('per_page');
+		// $per_page = $this->input->post('per_page');
 		$result = $this->home_model->update($data,['id_pengguna'=> $this->input->post('idd_pengguna')],'pengguna');
 		if ($result == TRUE) {
 				$this->session->set_flashdata('notif', 'Anda sukses mengupdate data');
 				$this->session->set_flashdata('tipe_notif', 'success');
-				if ($per_page != "") {
-				redirect('user/?per_page='.$per_page);	
-				}
-				else{
+				// if ($per_page != "") {
+				// redirect('user/?per_page='.$per_page);	
+				// }
+				// else{
 				redirect('user');		
-				}
+				// }
 			}
 			else{
 				$this->session->set_flashdata('notif', 'Maaf, anda gagal mengupdate data');
 				$this->session->set_flashdata('tipe_notif', 'danger');
-				if ($per_page != "") {
-				redirect('user/?per_page='.$per_page);	
-				}
-				else{
+				// if ($per_page != "") {
+				// redirect('user/?per_page='.$per_page);	
+				// }
+				// else{
 				redirect('user');		
-				}
+				// }
 			}	
 	}
 	public function edit_list(){

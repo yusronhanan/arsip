@@ -8,9 +8,10 @@ class Home_model extends CI_Model {
 		parent::__construct();
 		$this->load->model('auth_model');
 	}
-	public function get_user($limit,$mulai,$where){
+	public function get_user($where){
 		if ($where == '') {
-			return $this->db->limit($limit, $mulai)
+			return $this->db
+				// ->limit($limit, $mulai)
 						->join('jabatan','pengguna.id_jabatan = jabatan.id_jabatan')
 						->join('bagian','bagian.id_bagian = pengguna.id_bagian')
 						->group_by('id_pengguna')
@@ -18,7 +19,8 @@ class Home_model extends CI_Model {
 						->get('pengguna')->result();	
 		}
 		else{
-			return $this->db->where($where)->limit($limit, $mulai)
+			return $this->db->where($where)
+			// ->limit($limit, $mulai)
 						->join('jabatan','pengguna.id_jabatan = jabatan.id_jabatan')
 						->join('bagian','bagian.id_bagian = pengguna.id_bagian')
 						->group_by('id_pengguna')
@@ -27,16 +29,18 @@ class Home_model extends CI_Model {
 		}
 		
 	}
-	public function get_surat_masuk($limit,$mulai,$where){
+	public function get_surat_masuk($where){
 		if ($where == '') {
-			return $this->db->limit($limit, $mulai)
+			return $this->db
+			// ->limit($limit, $mulai)
 						->join('jenis_surat','surat_masuk.id_jenis_surat = jenis_surat.id_jenis_surat')
 						->order_by('id_surat_masuk', 'ASC')
 						->group_by('id_surat_masuk')
 						->get('surat_masuk')->result();	
 		}
 		else{
-			return $this->db->where($where)->limit($limit, $mulai)
+			return $this->db->where($where)
+			// ->limit($limit, $mulai)
 						->join('jenis_surat','surat_masuk.id_jenis_surat = jenis_surat.id_jenis_surat')
 						->order_by('id_surat_masuk', 'ASC')
 						->group_by('id_surat_masuk')
@@ -44,16 +48,18 @@ class Home_model extends CI_Model {
 		}
 		
 	}
-	public function get_surat_keluar($limit,$mulai,$where){
+	public function get_surat_keluar($where){
 		if ($where == '') {
-			return $this->db->limit($limit, $mulai)
+			return $this->db
+			// ->limit($limit, $mulai)
 						->join('jenis_surat','surat_keluar.id_jenis_surat = jenis_surat.id_jenis_surat')
 						->order_by('id_surat_keluar', 'ASC')
 						->group_by('id_surat_keluar')
 						->get('surat_keluar')->result();
 		}
 		else{
-			return $this->db->where($where)->limit($limit, $mulai)
+			return $this->db->where($where)
+			// ->limit($limit, $mulai)
 						->join('jenis_surat','surat_keluar.id_jenis_surat = jenis_surat.id_jenis_surat')
 						->order_by('id_surat_keluar', 'ASC')
 						->group_by('id_surat_keluar')
@@ -64,10 +70,10 @@ class Home_model extends CI_Model {
 		
 	}
 
-	public function get_disposisi($limit,$mulai,$where,$or_where){
+	public function get_disposisi($where,$or_where){
 		if ($where == '' && $or_where=='') {
 		return $this->db
-						->limit($limit, $mulai)
+						// ->limit($limit, $mulai)
 						->join('surat_masuk','disposisi.id_surat_masuk = surat_masuk.id_surat_masuk')
 						->join('pengguna','pengguna.id_pengguna = disposisi.kepada_id')
 						->join('jabatan', 'jabatan.id_jabatan = disposisi.kepada_kat')
@@ -76,7 +82,8 @@ class Home_model extends CI_Model {
 						->get('disposisi')->result();
 		}
 		else if ($or_where == ''){
-			return $this->db->where($where)->limit($limit, $mulai)
+			return $this->db->where($where)
+			// ->limit($limit, $mulai)
 						->join('surat_masuk','disposisi.id_surat_masuk = surat_masuk.id_surat_masuk')
 						->join('pengguna','pengguna.id_pengguna = disposisi.kepada_id')
 						->join('jabatan', 'jabatan.id_jabatan = disposisi.kepada_kat')
@@ -86,7 +93,8 @@ class Home_model extends CI_Model {
 						->result();
 		}
 		else{
-			return $this->db->where($where)->or_where($or_where)->limit($limit, $mulai)
+			return $this->db->where($where)->or_where($or_where)
+			// ->limit($limit, $mulai)
 						->join('surat_masuk','disposisi.id_surat_masuk = surat_masuk.id_surat_masuk')
 						->join('pengguna','pengguna.id_pengguna = disposisi.kepada_id')
 						->join('jabatan', 'jabatan.id_jabatan = disposisi.kepada_kat')

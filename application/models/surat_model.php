@@ -248,7 +248,7 @@ class Surat_model extends CI_Model {
 	}
 	else{
 	$update_berfore = [
-			'status'=> '1',
+			'status_surat'=> '1',
 			'tanggapan'=> $this->input->post('tanggapan'),
 		];
 		$this->db->where(['id_disposisi'=> $id_disposisi])

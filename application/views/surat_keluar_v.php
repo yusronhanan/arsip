@@ -23,7 +23,7 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <table width="100%" class="table table-striped table-bordered table-hover" >
+                            <table width="100%" class="table table-striped table-bordered table-hover"  id="dataTables-example">
                                 <thead>
                                     <tr>
                                         <th>ID Surat Keluar</th>
@@ -66,7 +66,7 @@
                                     
                                 </tbody>
                             </table>
-                            <?php echo $pagination ?>
+                            <!-- <?php echo $pagination ?> -->
                         </div>
                         <!-- /.panel-body -->
                     </div>
